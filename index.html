@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0ea5e9" />
+  <title>Calculadoras VGI · Valoración Geriátrica Integral</title>
+  <meta name="description" content="Suite de escalas de Valoración Geriátrica Integral: FRAIL, Yesavage, MMSE, Lawton, Barthel, Tinetti, Beck, MNA, GOHAI, Zarit, CAM, Downton, Athens." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A9%BA%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <a href="#main" class="skip-link">Saltar al contenido</a>
+
+  <header class="topbar">
+    <div class="topbar__brand">
+      <div class="brand-mark" aria-hidden="true">VGI</div>
+      <div class="brand-text">
+        <h1>Calculadoras VGI</h1>
+        <p>Valoración Geriátrica Integral</p>
+      </div>
+    </div>
+    <div class="topbar__actions">
+      <button id="btnTheme" class="icon-btn" type="button" aria-label="Cambiar tema">
+        <span class="theme-icon">◐</span>
+      </button>
+      <button id="btnMenu" class="icon-btn icon-btn--menu" type="button" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside id="sidebar" class="sidebar" aria-label="Lista de escalas">
+      <div class="sidebar__inner">
+        <div class="patient-card">
+          <h2>Paciente</h2>
+          <div class="patient-grid">
+            <label class="field">
+              <span>Nombre</span>
+              <input type="text" id="pName" placeholder="Nombre completo" autocomplete="off" />
+            </label>
+            <label class="field">
+              <span>Edad</span>
+              <input type="number" id="pAge" min="0" max="130" placeholder="años" />
+            </label>
+            <label class="field">
+              <span>Sexo</span>
+              <select id="pSex">
+                <option value="">—</option>
+                <option value="F">Femenino</option>
+                <option value="M">Masculino</option>
+              </select>
+            </label>
+            <label class="field field--full">
+              <span>Expediente / ID</span>
+              <input type="text" id="pId" placeholder="N° de expediente" autocomplete="off" />
+            </label>
+            <label class="field field--full">
+              <span>Fecha</span>
+              <input type="date" id="pDate" />
+            </label>
+          </div>
+        </div>
+
+        <nav class="scale-nav" id="scaleNav" aria-label="Escalas disponibles"></nav>
+
+        <div class="sidebar__footer">
+          <button class="btn btn--ghost" id="btnExport" type="button">Exportar JSON</button>
+          <button class="btn btn--ghost" id="btnImport" type="button">Importar</button>
+          <input type="file" id="fileImport" accept="application/json" hidden />
+          <button class="btn btn--ghost btn--danger" id="btnClearAll" type="button">Limpiar todo</button>
+        </div>
+      </div>
+    </aside>
+
+    <main id="main" class="main">
+      <div id="scaleView" class="scale-view"></div>
+    </main>
+  </div>
+
+  <div class="overlay" id="overlay" hidden></div>
+
+  <script src="assets/js/scales.js" defer></script>
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>
